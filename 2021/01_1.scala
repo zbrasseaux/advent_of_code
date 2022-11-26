@@ -1,6 +1,6 @@
 import scala.io.Source; // library to read input file in
 
-object advent_of_code_2021_01 {
+object advent_of_code_2021_01_1 {
 	def main(args: Array[String]): Unit = {
 
 		val lines = Source.fromFile("01_input.csv").getLines().toList; // file as immutable list
