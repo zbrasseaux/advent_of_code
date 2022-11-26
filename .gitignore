@@ -1,2 +1,5 @@
 # complied scala files
 *.class
+
+# python prototyping
+*.py
