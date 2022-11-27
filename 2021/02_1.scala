@@ -22,7 +22,7 @@ object advent_of_code_2021_02_1 {
 			}
 		}
 
-		print(s"($up - $down) * $forward = ");
-		println((up - down) * forward); // result
+		print(s"($down - $up) * $forward = ");
+		println((down - up) * forward); // result
 	}
 }
