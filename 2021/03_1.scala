@@ -17,43 +17,25 @@ object advent_of_code_2021_03_1 {
 			print(w);
 		};
 		println();
-		val gammaVal: Int = binToInt(gamma);
+		val gammaVal: Int = Integer.parseInt(gamma.foldLeft("")((acc, curr) => acc + s"$curr"), 2);
 		println(gammaVal);
 
 		for (w <- epsilon) {
 			print(w);
 		};
 		println();
-		val epsilonVal: Int = binToInt(epsilon);
+		val epsilonVal: Int = Integer.parseInt(epsilon.foldLeft("")((acc, curr) => acc + s"$curr"), 2);
 		println(epsilonVal);
 
 		println(gammaVal * epsilonVal);
 	}
 
+	// flip binary digit
 	def flip_bin(inDig: Int): Int = {
 		if (inDig == 0) {
 			return 1;
 		} else {
 			return 0;
 		}
-	}
-
-	def binToInt(binArr: Array[Int]): Int = {
-		val binArrRev: Array[Int] = binArr.reverse;
-		var currVal: Int = 0;
-
-		for (i <- 0 until binArrRev.length) {
-			currVal += (binArr(i) * power(2, i))
-		}
-
-		return currVal
-	}
-
-	def power(a: Int, b: Int): Int = {
-		var curr: Int = 0;
-		for (i <- 0 until b) {
-			curr *= a;
-		}
-		return curr;
 	}
 }
