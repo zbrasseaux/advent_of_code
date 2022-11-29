@@ -6,7 +6,7 @@ object advent_of_code_2021_03_1 {
 		val lines = Source.fromFile("03_input.txt").getLines().toList; // file as immutable list
 		var sums: Array[Int] = Array();
 
-		for (i <- 0 until 8) { // iterate over list by index
+		for (i <- 0 until 12) { // iterate over list by index
 			sums = sums :+ lines.foldLeft(0)((acc,curr) => acc + curr(i).toInt);
 		}
 
