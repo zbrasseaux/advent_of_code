@@ -50,7 +50,7 @@ object advent_of_code_2022_02gi_1 {
 			} else {
 				return 0
 			}
-		} else if (opp == "scissors") {
+		} else {
 			if (player == "rock") {
 				return 6;
 			} else {
