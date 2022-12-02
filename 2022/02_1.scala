@@ -1,6 +1,6 @@
 import scala.io.Source; // library to read input file in
 
-object advent_of_code_2022_02_1 {
+object advent_of_code_2022_02gi_1 {
 	def main(args: Array[String]): Unit = {
 
 		// file as immutable list
@@ -30,11 +30,12 @@ object advent_of_code_2022_02_1 {
 			val player_b: String = rps_outcomes(line.split(" ")(1));
 
 			currScore += rps_values(player_b) + parse_outcome(player_a, player_b);
+		}
 
 		println(currScore);
 	}
 
-	def parse_outcome(opp: String, player: String): Int -> {
+	def parse_outcome(opp: String, player: String): Int = {
 		if (opp == player) {
 			return 3;
 		} else if (opp == "rock") {
