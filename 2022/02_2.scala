@@ -29,7 +29,7 @@ object advent_of_code_2022_02_2 {
 		// iterate over file
 		for (line <- lines) {
 			val player_a: String = opp_plays(line.split(" ")(0));
-			val player_b: String = player_plays(line.split(" ")(1));
+			val player_b: Int = player_plays(line.split(" ")(1));
 
 			currScore += player_b + rps_values(parse_outcome(player_a, player_b));
 		}
@@ -46,7 +46,7 @@ object advent_of_code_2022_02_2 {
 			} else {
 				return "paper";
 			}
-		} else if (opp == "paper" {
+		} else if (opp == "paper") {
 			if (outcome == 0) {
 				return "rock";
 			} else if (outcome == 3){
