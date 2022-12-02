@@ -1,6 +1,6 @@
 import scala.io.Source; // library to read input file in
 
-object advent_of_code_2022_02gi_1 {
+object advent_of_code_2022_02_1 {
 	def main(args: Array[String]): Unit = {
 
 		// file as immutable list
