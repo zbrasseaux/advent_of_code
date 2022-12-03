@@ -13,19 +13,17 @@ object advent_of_code_2022_03_1 {
 			alphabet_map.put(alphabet(i), i+1);
 		}
 
-		var dup_items: Set[Char] = Set();
+		var dup_items: Array[Char] = Array();
 
 		// iterate over file
 		for (line <- lines) {
-			val half_one = line.slice(0, (line.length)/2);
-			val half_two = line.slice((line.length)/2, line.length-1);
-			var seen_elements: Array[Char] = Array();
+			val half_one = line.slice(0, (line.length)/2).toSet;
+			val half_two = line.slice((line.length)/2, line.length-1).toSet;
 
-			val intersection = half_one.intersect(half_two);
-			println(intersection);
+			val intersection: Set[Char] = half_one.intersect(half_two);
 
 			for (element <- intersection) {
-				dup_items += element
+				dup_items = dup_items :+ element
 			}
 		}
 
