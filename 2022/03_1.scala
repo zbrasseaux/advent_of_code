@@ -17,8 +17,9 @@ object advent_of_code_2022_03_1 {
 
 		// iterate over file
 		for (line <- lines) {
-			val half_one = line.slice(0, (line.length)/2).toSet;
-			val half_two = line.slice((line.length)/2, line.length-1).toSet;
+			val midpoint: Int = line.length/2;
+			val half_one = line.slice(0, midpoint).toSet;
+			val half_two = line.slice(midpoint, line.length).toSet;
 
 			val intersection: Set[Char] = half_one.intersect(half_two);
 
