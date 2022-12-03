@@ -17,17 +17,22 @@ object advent_of_code_2022_03_1 {
 
 		// iterate over file
 		for (line <- lines) {
-			val midpoint: Int = line.length/2;
+			val midpoint: Int = line.length/2; // middle of array
+
+			// split array into halves
 			val half_one = line.slice(0, midpoint).toSet;
 			val half_two = line.slice(midpoint, line.length).toSet;
 
+			// intersection of halves
 			val intersection: Set[Char] = half_one.intersect(half_two);
 
+			// add elements individually
 			for (element <- intersection) {
 				dup_items = dup_items :+ element
 			}
 		}
 
+		// final sum
 		var sum: Int = 0;
 
 		for (element <- dup_items) {
