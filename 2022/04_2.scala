@@ -21,9 +21,6 @@ object advent_of_code_2022_04_2 {
 			val x1: Int = p1(0).toInt;
 			val y1: Int = p1(1).toInt;
 
-			println(s"${x0} <= ${x1} -> ${(x0 <= x1)}")
-			println(s"${y0} >= ${y1} -> ${(y0 >= y1)}\n")
-
 			// check to see if one pair is contained within another
 			if ((x0 <= x1 && y0 >= x1) || (x1 <= x0 && y1 >= x0)) {
 				count += 1;
