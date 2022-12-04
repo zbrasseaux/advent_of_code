@@ -16,10 +16,10 @@ object advent_of_code_2022_03_2 {
 		var badges: Array[Char] = Array();
 
 		val size: Int = lines.length / 3;
-		println(size)
 
 		// iterate over file
-		for (line <- 1 until size) {
+		for (line <- 1 to size) {
+			// calculate the new starting index
 			val curr_index: Int = (line*3) - 1;
 
 			// intersection of lines
@@ -29,12 +29,8 @@ object advent_of_code_2022_03_2 {
 				lines(curr_index - 2).toSet
 			);
 
-			println(intersection)
-
-			// add elements individually
-			for (element <- intersection) {
-				badges = badges :+ element
-			}
+			// add intersection to badges
+			badges = badges :+ intersection.toList(0);
 		}
 
 		// final sum
@@ -46,5 +42,4 @@ object advent_of_code_2022_03_2 {
 
 		println(sum); // return result
 	}
-
 }
