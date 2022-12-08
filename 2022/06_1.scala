@@ -7,7 +7,10 @@ object advent_of_code_2022_06_1 {
 		// file as immutable list
 		val input: String = Source.fromFile("day_06.input").getLines().toList(0); 
 		// start with first 3 elements
-		var marker: Queue[Char] = Queue(input(0), input(1), input(2)); 
+		var marker: Queue[Char] = Queue(input(0)); 
+		for (i <- 1 to 2) {
+			marker.enqueue(input(i))
+		}
 		var result: Int = 0; // easily store result
 		
 		for (i <- 3 until input.length) {
