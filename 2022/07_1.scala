@@ -17,7 +17,8 @@ object advent_of_code_2022_07_1 {
 			if (curr_line(0) == "$") {
 				if (curr_line(1) == "cd") {
 					if (curr_line(2) == "..") {
-						path.pop();
+						val curr_dir = path.pop();
+						dir_size(path.top) += dir_size(curr_dir);
 					} else if (curr_line(2) == ".") {
 						1 == 1;
 					} else {
