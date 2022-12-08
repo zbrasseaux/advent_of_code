@@ -1,7 +1,7 @@
 import scala.io.Source; // library to read input file in
 import scala.collection.mutable.Queue; // library for Queue structure
 
-object advent_of_code_2022_06_1 {
+object advent_of_code_2022_06_2 {
 	def main(args: Array[String]): Unit = {
 
 		// file as immutable list
