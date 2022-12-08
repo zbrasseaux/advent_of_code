@@ -15,14 +15,13 @@ object advent_of_code_2022_07_1 {
 			val curr_line: Array[String] = line.split(" "); // parse out line
 			val full_path: String = path.toArray.mkString("/");
 
-			println(full_path);
-
 			if (curr_line(0) == "$") { // parse for commands
 				if (curr_line(1) == "cd") { // parse for cd commands
 					if (curr_line(2) == "..") { // navigate to parent dir
-						val curr_dir = path.toArray.mkString("/"); // move to parent dir and get curr dir
+						// val curr_dir = path.toArray.mkString("/"); // move to parent dir and get curr dir
 						path.pop()
-						dir_size(full_path) += dir_size(curr_dir); // add dir size to parent
+						// println(s"${full_path}: ${dir_size(full_path)} <- ${curr_dir}: ${dir_size(curr_dir)}")
+						// dir_size(full_path) += dir_size(curr_dir); // add dir size to parent
 					} else {
 						path.push(curr_line(2)); // navigate to given directory
 					}
@@ -32,7 +31,28 @@ object advent_of_code_2022_07_1 {
 			} else if (curr_line(0) == "dir") {
 				1 == 1; // skip dir lines
 			} else {
+				val curr_file_size: Int = curr_line(0).toInt;
+				val temp_stack: Stack[String] = Stack();
+
+				for (i <- 0 until path.length) {
+					val temp_path: String = path.toArray.mkString("/");
+					dir_size(temp_path) += curr_file_size;
+					val curr_file_dir: String = path.pop();
+					temp_stack.push(curr_file_dir);
+				}
+
+				for (i <- 0 until temp_stack.length) {
+					val x: String = temp_stack.pop();
+					path.push(x);
+				}
+
 				dir_size(full_path) += curr_line(0).toInt; // append file size to map
+			}
+
+			try {
+				println(s"${full_path}\t${dir_size(full_path)}");
+			} catch {
+				case x: NoSuchElementException => println();
 			}
 		}
 
