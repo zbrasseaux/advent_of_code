@@ -13,22 +13,26 @@ object advent_of_code_2022_07_1 {
 
 		for (line <- lines) {
 			val curr_line: Array[String] = line.split(" "); // parse out line
+			val full_path: String = path.toArray.mkString("/");
+
+			println(full_path);
 
 			if (curr_line(0) == "$") { // parse for commands
 				if (curr_line(1) == "cd") { // parse for cd commands
 					if (curr_line(2) == "..") { // navigate to parent dir
-						val curr_dir = path.pop(); // move to parent dir and get curr dir
-						dir_size(path.top) += dir_size(curr_dir); // add dir size to parent
+						val curr_dir = path.toArray.mkString("/"); // move to parent dir and get curr dir
+						path.pop()
+						dir_size(full_path) += dir_size(curr_dir); // add dir size to parent
 					} else {
 						path.push(curr_line(2)); // navigate to given directory
 					}
 				} else if (curr_line(1) == "ls") { // list items in dir
-					dir_size(path.top) = 0; // initialize current dir in map
+					dir_size(full_path) = 0; // initialize current dir in map
 				}
 			} else if (curr_line(0) == "dir") {
 				1 == 1; // skip dir lines
 			} else {
-				dir_size(path.top) += curr_line(0).toInt; // append file size to map
+				dir_size(full_path) += curr_line(0).toInt; // append file size to map
 			}
 		}
 
