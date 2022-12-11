@@ -15,6 +15,10 @@ object advent_of_code_2022_10_1 {
 
 		val operations: Queue[Int] = Queue();
 		
+		/*  todo:
+			- change iteration to be cycle based
+			- try catch on line parsing
+		*/ 
 		for (line <- lines) {
 			// start of cycle
 			// parse arg
@@ -31,6 +35,8 @@ object advent_of_code_2022_10_1 {
 			val curr_val: Int = operations.dequeue();
 
 			x += curr_val; // increment x by current value
+
+			println(s"cycle: ${cycle}\tcurr_val: ${curr_val}\tx: ${x}\tsum: ${sum}");
 
 			// search for specific cycle
 			if (cycle == curr_search && curr_search < 221) {
