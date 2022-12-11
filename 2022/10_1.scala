@@ -2,7 +2,8 @@ import scala.io.Source; // library to read input file in
 import scala.collection.mutable.Queue; // library for stack structure
 
 object advent_of_code_2022_10_1 {
-	def main(args: Array[Int]): Unit = {
+
+	def main(args: Array[String]): Unit = {
 
 		// file as immutable list
 		val lines = Source.fromFile("day_10.input").getLines().toList; 
@@ -22,7 +23,7 @@ object advent_of_code_2022_10_1 {
 					operations.enqueue(0);
 				} case "addx" => { // add 0 and val to queue (2 cycles)
 					operations.enqueue(0);
-					operations.enqueue(line.split(" ")(0).toInt);
+					operations.enqueue(line.split(" ")(1).toInt);
 				}
 			}
 
@@ -33,7 +34,7 @@ object advent_of_code_2022_10_1 {
 
 			// search for specific cycle
 			if (cycle == curr_search && curr_search < 221) {
-				sum += curr_val * cycle;
+				sum += x * cycle;
 				curr_search += 40;
 			}
 
