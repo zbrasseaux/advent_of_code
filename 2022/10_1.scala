@@ -16,7 +16,6 @@ object advent_of_code_2022_10_1 {
 		val operations: Queue[Int] = Queue();
 		
 		/*  todo:
-			- change iteration to be cycle based
 			- try catch on line parsing
 		*/ 
 		while (cycle <= 220) {
@@ -32,7 +31,7 @@ object advent_of_code_2022_10_1 {
 					}
 				}
 			} catch {
-				case e: ListIndexOutOfBoundsException => {
+				case e: IndexOutOfBoundsException => {
 					1 == 1;
 				}
 			}
