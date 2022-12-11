@@ -19,15 +19,21 @@ object advent_of_code_2022_10_1 {
 			- change iteration to be cycle based
 			- try catch on line parsing
 		*/ 
-		for (line <- lines) {
+		while (cycle <= 220) {
 			// start of cycle
 			// parse arg
-			line.split(" ")(0) match {
-				case "noop" => { // add 0 to queue
-					operations.enqueue(0);
-				} case "addx" => { // add 0 and val to queue (2 cycles)
-					operations.enqueue(0);
-					operations.enqueue(line.split(" ")(1).toInt);
+			try {	
+				lines(cycle - 1).split(" ")(0) match {
+					case "noop" => { // add 0 to queue
+						operations.enqueue(0);
+					} case "addx" => { // add 0 and val to queue (2 cycles)
+						operations.enqueue(0);
+						operations.enqueue(lines(cycle - 1).split(" ")(1).toInt);
+					}
+				}
+			} catch {
+				case e: ListIndexOutOfBoundsException => {
+					1 == 1;
 				}
 			}
 
